@@ -38,10 +38,8 @@ namespace SampleDotnet2._0GlobalFilterProject
                     options.Audience = Configuration["JwtBearer.Audience"];
                     options.Authority = Configuration["JwtBearer.Authority"];
                 } )
-            // bind the "AzureJwtBearer" Section in appsettings.json to my JwtBearerOptions
-            .AddAzureJwtBearer(options => Configuration.Bind("AzureJwtBearer", options))
             // configure Cookie auth 
-                .AddCookie(options =>
+            .AddCookie(options =>
                 {
                     options.LoginPath = "/Account/SignIn";
                     options.LogoutPath = "/Account/SignOut";
